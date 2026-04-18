@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WareShow | Ürünlerinizi Keşfedin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="logo">Ware<span>Show</span></div>
+                <div class="nav-actions" id="navActions">
+                    <button class="btn btn-text" id="loginBtn">Giriş Yap</button>
+                    <button class="btn btn-primary" id="signupBtn">Kayıt Ol</button>
+                </div>
+                <div class="user-actions hidden" id="userActions">
+                    <button class="btn btn-primary" id="addProductBtn">Ürün Ekle</button>
+                    <!-- Avatar Dropdown -->
+                    <div class="avatar-dropdown" id="avatarDropdown">
+                        <button class="avatar-btn" id="avatarBtn" aria-label="Kullanıcı menüsü">
+                            <span class="avatar-initials" id="avatarInitials">U</span>
+                        </button>
+                        <div class="avatar-menu hidden" id="avatarMenu">
+                            <div class="avatar-menu-header">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                <span id="avatarMenuEmail">kullanici@mail.com</span>
+                            </div>
+                            <div class="avatar-menu-divider"></div>
+                            <div class="avatar-menu-user">
+                                <div class="avatar-menu-avatar" id="avatarMenuBadge">U</div>
+                                <span class="avatar-menu-name" id="avatarMenuName">Kullanıcı</span>
+                            </div>
+                            <div class="avatar-menu-divider"></div>
+                            <button class="avatar-menu-item" id="customizeBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><circle cx="12" cy="12" r="7"/></svg>
+                                Kişiselleştirme
+                            </button>
+                            <button class="avatar-menu-item" id="settingsBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                                Ayarlar
+                            </button>
+                            <div class="avatar-menu-divider"></div>
+                            <button class="avatar-menu-item avatar-menu-logout" id="logoutBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                                Oturumu kapat
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Landing Page Section -->
+            <section id="landingPage" class="hero-section">
+                <div class="hero-text">
+                    <h1>Ürünlerinizi Şıklıkla Sergileyin.</h1>
+                    <p>Minimalist tasarım ve güçlü özellikleri bir araya getiren WareShow ile ilginizi çeken ürünleri
+                        profesyonel bir koleksiyona dönüştürün, otomatik fiyat takibi yapın ve alışveriş deneyiminizi
+                        zirveye taşıyın.</p>
+                    <div class="hero-btns">
+                        <button class="btn btn-primary btn-large" id="heroStartBtn">Hemen Başlayın</button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-mockup-grid">
+
+                        <!-- Telefon Card -->
+                        <div class="mockup-card">
+                            <div class="mockup-img">
+                                <img src="assets/telefon.png" alt="Telefon">
+                            </div>
+                            <div class="mockup-info">
+                                <h4>Telefon</h4>
+                                <div class="mockup-footer">
+                                    <span class="mockup-price">65.000₺</span>
+                                    <span class="mockup-btn">Görüntüle</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Macbook Card -->
+                        <div class="mockup-card macbook-card">
+                            <div class="mockup-img">
+                                <img src="assets/macbook.png" alt="Macbook">
+                            </div>
+                            <div class="mockup-info">
+                                <h4>Macbook</h4>
+                                <div class="mockup-footer">
+                                    <span class="mockup-price">44.950₺</span>
+                                    <span class="mockup-btn">Görüntüle</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Airpods Pro Card -->
+                        <div class="mockup-card">
+                            <div class="mockup-img">
+                                <img src="assets/airpods-pro.png" alt="Airpods Pro">
+                            </div>
+                            <div class="mockup-info">
+                                <h4>Airpods</h4>
+                                <div class="mockup-footer">
+                                    <span class="mockup-price">9.000₺</span>
+                                    <span class="mockup-btn">Görüntüle</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Canon Card -->
+                        <div class="mockup-card">
+                            <div class="mockup-img">
+                                <img src="assets/kamera.png" alt="Canon">
+                            </div>
+                            <div class="mockup-info">
+                                <h4>Kamera</h4>
+                                <div class="mockup-footer">
+                                    <span class="mockup-price">17.999₺</span>
+                                    <span class="mockup-btn">Görüntüle</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Apple Watch Card -->
+                        <div class="mockup-card">
+                            <div class="mockup-img">
+                                <img src="assets/apple-watch.png" alt="Apple Watch">
+                            </div>
+                            <div class="mockup-info">
+                                <h4>Apple Watch</h4>
+                                <div class="mockup-footer">
+                                    <span class="mockup-price">13.500₺</span>
+                                    <span class="mockup-btn">Görüntüle</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- iPad Card -->
+                        <div class="mockup-card">
+                            <div class="mockup-img">
+                                <img src="assets/tablet.png" alt="Tablet">
+                            </div>
+                            <div class="mockup-info">
+                                <h4>Tablet</h4>
+                                <div class="mockup-footer">
+                                    <span class="mockup-price">22.500₺</span>
+                                    <span class="mockup-btn">Görüntüle</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Feature Showcase Section -->
+            <section id="features" class="features-section">
+                <h3 class="section-title">Uygulamayı Keşfedin</h3>
+                <div class="features-container">
+                    <div class="showcase-gallery">
+                        <div class="showcase-card dashboard-card">
+                            <img src="assets/dashboard-showcase.png" alt="WareShow Dashboard">
+                        </div>
+                        <div class="showcase-card detail-card">
+                            <img src="assets/detail-showcase.png" alt="Product Detail View">
+                        </div>
+                    </div>
+                    <div class="features-content">
+                        <h3>Koleksiyonunuzu Akıllıca Yönetin</h3>
+                        <p>WareShow, ürünlerinizi sadece listelemekle kalmaz, aynı zamanda gelişmiş bot teknolojisi ile
+                            fiyat takibini otomatikleştirir.</p>
+                        <ul class="feature-list">
+                            <li>
+                                <div class="feature-icon">🚀</div>
+                                <div>
+                                    <strong>Otomatik Fiyat Takibi:</strong>
+                                    <span>Eklediğiniz ürünlerin fiyatlarını e-ticaret sitelerinden anlık olarak
+                                        toplar.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="feature-icon">🎨</div>
+                                <div>
+                                    <strong>Gelişmiş Görünüm:</strong>
+                                    <span>İhtiyacınıza göre 2'li, 4'lü veya 6'lı ızgara görünümleri arasında geçiş
+                                        yapın.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="feature-icon">⚡</div>
+                                <div>
+                                    <strong>Hızlı Düzenleme:</strong>
+                                    <span>Ürün detaylarınızı, görsellerinizi ve fiyatlarınızı saniyeler içinde
+                                        güncelleyin.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="dashboard-section hidden">
+                <div class="section-header">
+                    <div class="header-left">
+                        <h2>Koleksiyonunuz</h2>
+                    </div>
+                    <div class="header-right">
+                        <div class="dropdown-container">
+                            <button class="dropdown-btn" id="sortBtn">
+                                <span>Sırala</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu" id="sortMenu">
+                                <div class="menu-item" data-sort="price-asc">Fiyat (Artan)</div>
+                                <div class="menu-item" data-sort="price-desc">Fiyat (Azalan)</div>
+                                <div class="menu-item" data-sort="recent">Son Eklenenler</div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown-container">
+                            <button class="dropdown-btn" id="viewBtn">
+                                <span>Görünüm</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu view-menu" id="viewMenu">
+                                <div class="menu-item" data-view="2">
+                                    <span class="radio-dot"></span> 2
+                                </div>
+                                <div class="menu-item active" data-view="4">
+                                    <span class="radio-dot"></span> 4
+                                </div>
+                                <div class="menu-item" data-view="6">
+                                    <span class="radio-dot"></span> 6
+                                </div>
+                            </div>
+                        </div>
+                        <p id="productCount" class="count-pill">0 ürün</p>
+                    </div>
+                </div>
+                <div class="product-grid" id="productGrid">
+                    <!-- Products will be injected here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Product Modal Overlay -->
+        <div class="modal-overlay hidden" id="modalOverlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3>Yeni Ürün Ekle</h3>
+                </div>
+                <div class="modal-body">
+                    <form id="productForm">
+                        <div class="form-group">
+                            <label for="title">Ürün Başlığı *</label>
+                            <input type="text" id="title" placeholder="Ürün adını girin..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="manualPrice">Fiyat (Opsiyonel)</label>
+                            <input type="text" id="manualPrice" placeholder="Örn: ₺1.250,00">
+                        </div>
+                        <div class="form-group">
+                            <label for="link">Ürün Linki</label>
+                            <input type="url" id="link" placeholder="https://example.com/urun">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Ürün Açıklaması</label>
+                            <textarea id="description" rows="3"
+                                placeholder="Ürün hakkında kısa bir bilgi..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Ürün Görseli</label>
+                            <div class="file-drop-zone" id="dropZone">
+                                <input type="file" id="fileInput" accept="image/*" hidden>
+                                <div class="drop-zone-content">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" />
+                                    </svg>
+                                    <p>Görsel Seçin veya Sürükleyin</p>
+                                    <span id="fileName"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="cancelBtn">Vazgeç</button>
+                    <button class="btn btn-primary" id="saveBtn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            style="margin-right: 6px;">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                            <polyline points="17 21 17 13 7 13 7 21" />
+                            <polyline points="7 3 7 8 15 8" />
+                        </svg>
+                        Kaydet
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Modal -->
+        <div class="modal-overlay hidden" id="loginModal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3>Giriş Yap</h3>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginEmail">E-posta</label>
+                            <input type="email" id="loginEmail" placeholder="ornek@mail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPass">Şifre</label>
+                            <input type="password" id="loginPass" placeholder="••••••••" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary close-modal">İptal</button>
+                    <button class="btn btn-primary" id="submitLogin">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            style="margin-right: 6px;">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                            <polyline points="10 17 15 12 10 7" />
+                            <line x1="15" y1="12" x2="3" y2="12" />
+                        </svg>
+                        Giriş Yap
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signup Modal -->
+        <div class="modal-overlay hidden" id="signupModal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3>Kayıt Ol</h3>
+                </div>
+                <div class="modal-body">
+                    <form id="signupForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">İsim</label>
+                                <input type="text" id="name" placeholder="Adınız" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="surname">Soyisim</label>
+                                <input type="text" id="surname" placeholder="Soyadınız" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupEmail">E-posta</label>
+                            <input type="email" id="signupEmail" placeholder="ornek@mail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPass">Şifre</label>
+                            <input type="password" id="signupPass" placeholder="••••••••" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary close-modal">İptal</button>
+                    <button class="btn btn-primary" id="submitSignup">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            style="margin-right: 6px;">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="8.5" cy="7" r="4" />
+                            <line x1="20" y1="8" x2="20" y2="14" />
+                            <line x1="23" y1="11" x2="17" y2="11" />
+                        </svg>
+                        Kayıt Ol
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Detail Modal -->
+        <div class="modal-overlay hidden" id="detailModal">
+            <div class="modal modal-large" style="max-width: 800px;">
+                <div class="modal-header detail-header"
+                    style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; border-bottom: 1px solid #f1f5f9;">
+                    <h3 style="margin: 0;">Ürün Detayı</h3>
+                    <div class="detail-actions" style="display: flex; gap: 0.75rem;">
+                        <button class="btn btn-secondary btn-sm" id="editProductBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                            </svg>
+                            Düzenle
+                        </button>
+                        <button class="btn btn-danger btn-sm" id="deleteProductBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="3 6 5 6 21 6" />
+                                <path
+                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                <line x1="10" y1="11" x2="10" y2="17" />
+                                <line x1="14" y1="11" x2="14" y2="17" />
+                            </svg>
+                            Sil
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body" style="padding: 1.5rem;">
+                    <div class="detail-content" style="display: flex; gap: 2rem;">
+                        <div class="detail-visual" id="detailVisual"
+                            style="flex: 1; height: 350px; background-color: #f1f5f9; background-size: cover; background-position: center; border-radius: 12px; border: 1px solid #e2e8f0;">
+                        </div>
+                        <div class="detail-info"
+                            style="flex: 1.2; display: flex; flex-direction: column; gap: 1.25rem;">
+                            <h2 id="detailTitle"
+                                style="font-size: 1.75rem; font-weight: 800; color: #0f172a; margin: 0;">Ürün Başlığı
+                            </h2>
+                            <div class="detail-price-box">
+                                <span class="label"
+                                    style="display: block; font-size: 0.85rem; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.025em; margin-bottom: 0.25rem;">Güncel
+                                    Fiyat</span>
+                                <span id="detailPrice" class="value"
+                                    style="font-size: 1.5rem; font-weight: 800; color: var(--primary);">₺0.00</span>
+                            </div>
+                            <div class="detail-desc-box">
+                                <span class="label"
+                                    style="display: block; font-size: 0.85rem; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.025em; margin-bottom: 0.25rem;">Açıklama</span>
+                                <p id="detailDesc"
+                                    style="font-size: 1rem; color: #334155; line-height: 1.7; margin: 0;">Ürün
+                                    açıklaması burada yer alacak.</p>
+                            </div>
+                            <div class="detail-link-box" style="margin-top: auto; padding-top: 1rem;">
+                                <a href="#" id="detailUrl" target="_blank" class="btn btn-outline"
+                                    style="width: 100%; text-decoration: none; text-align: center; display: flex; align-items: center; justify-content: center; padding: 0.85rem; border-radius: 10px; font-weight: 700; font-size: 1rem; transition: all 0.2s;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                        style="margin-right: 8px;">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                        <polyline points="15 3 21 3 21 9" />
+                                        <line x1="10" y1="14" x2="21" y2="3" />
+                                    </svg>
+                                    Satın Alma Sayfasına Git
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"
+                    style="padding: 1.25rem 1.5rem; background: #f8fafc; display: flex; justify-content: flex-end;">
+                    <button class="btn btn-secondary close-modal" style="padding: 0.75rem 2rem; font-weight: 700;">
+                        Kapat
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deletion Confirmation Modal -->
+        <div class="modal-overlay hidden" id="confirmDeleteModal">
+            <div class="modal modal-sm" style="max-width: 400px;">
+                <div class="modal-body" style="padding: 2.5rem 2rem; text-align: center;">
+                    <div class="warning-icon"
+                        style="width: 64px; height: 64px; background: #fee2e2; color: #dc2626; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M19 6L5 20M5 6l14 14" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-bottom: 0.75rem;">Ürünü Sil?
+                    </h3>
+                    <p style="color: #64748b; font-size: 0.95rem; line-height: 1.5; margin-bottom: 2rem;">Bu işlem geri
+                        alınamaz. Ürünü koleksiyonunuzdan kalıcı olarak silmek istediğinizden emin misiniz?</p>
+                    <div class="confirm-actions" style="display: flex; gap: 1rem;">
+                        <button class="btn btn-secondary close-modal"
+                            style="flex: 1; padding: 0.8rem; border-radius: 10px; font-weight: 700;">Vazgeç</button>
+                        <button class="btn btn-danger" id="confirmDeleteBtn"
+                            style="flex: 1; padding: 0.8rem; border-radius: 10px; font-weight: 700; background: #dc2626; color: white; border: none;">Sil</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Settings Modal -->
+        <div class="settings-overlay hidden" id="settingsOverlay">
+            <div class="settings-modal">
+                <!-- X close button — top right of the whole modal -->
+                <button class="settings-close-btn" id="settingsCloseBtn" aria-label="Kapat">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+                <div class="settings-sidebar">
+                    <!-- WareShow logo top-left of sidebar -->
+                    <div class="settings-logo">Ware<span>Show</span></div>
+                    <nav class="settings-nav">
+                        <button class="settings-nav-item active" data-tab="account">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Hesap
+                        </button>
+                        <button class="settings-nav-item" data-tab="personalization">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"/>
+                                <line x1="12" y1="1" x2="12" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="23"/>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                <line x1="1" y1="12" x2="3" y2="12"/>
+                                <line x1="21" y1="12" x2="23" y2="12"/>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                            </svg>
+                            Kişiselleştirme
+                        </button>
+                    </nav>
+                </div>
+                <div class="settings-content">
+                    <!-- Hesap Tab -->
+                    <div class="settings-tab active" id="settingsTabAccount">
+                        <h2 class="settings-tab-title">Hesap</h2>
+                        <form id="accountForm" class="settings-form" autocomplete="off">
+                            <div class="settings-field">
+                                <label for="settingsName">Ad</label>
+                                <input type="text" id="settingsName" placeholder="Adınız">
+                            </div>
+                            <div class="settings-field">
+                                <label for="settingsSurname">Soyad</label>
+                                <input type="text" id="settingsSurname" placeholder="Soyadınız">
+                            </div>
+                            <div class="settings-field">
+                                <label for="settingsEmail">E-posta</label>
+                                <input type="email" id="settingsEmail" placeholder="ornek@mail.com">
+                            </div>
+                            <div class="settings-divider"></div>
+                            <div class="settings-field">
+                                <label for="settingsCurrentPass">Mevcut Şifre</label>
+                                <input type="password" id="settingsCurrentPass" placeholder="••••••••">
+                            </div>
+                            <div class="settings-field">
+                                <label for="settingsNewPass">Yeni Şifre</label>
+                                <input type="password" id="settingsNewPass" placeholder="••••••••">
+                            </div>
+                            <div class="settings-field">
+                                <label for="settingsConfirmPass">Yeni Şifre (Tekrar)</label>
+                                <input type="password" id="settingsConfirmPass" placeholder="••••••••">
+                            </div>
+                            <div class="settings-actions">
+                                <button type="button" class="btn btn-primary" id="saveAccountBtn">Değişiklikleri Kaydet</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Kişiselleştirme Tab -->
+                    <div class="settings-tab" id="settingsTabPersonalization">
+                        <h2 class="settings-tab-title">Kişiselleştirme</h2>
+                        <div class="settings-form">
+                            <div class="settings-field">
+                                <label>Görünüm</label>
+                                <p class="settings-field-desc">Uygulamanın temasını seçin.</p>
+                            </div>
+                            <div class="theme-picker">
+                                <button class="theme-option active" data-theme="light" id="themeLightBtn">
+                                    <div class="theme-preview theme-preview-light">
+                                        <div class="tp-nav"></div>
+                                        <div class="tp-body">
+                                            <div class="tp-line"></div>
+                                            <div class="tp-line short"></div>
+                                        </div>
+                                    </div>
+                                    <span>Açık</span>
+                                    <svg class="theme-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </button>
+                                <button class="theme-option" data-theme="dark" id="themeDarkBtn">
+                                    <div class="theme-preview theme-preview-dark">
+                                        <div class="tp-nav"></div>
+                                        <div class="tp-body">
+                                            <div class="tp-line"></div>
+                                            <div class="tp-line short"></div>
+                                        </div>
+                                    </div>
+                                    <span>Koyu</span>
+                                    <svg class="theme-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- End of app-container -->
+    <script src="script.js"></script>
+</body>
+
+</html>
