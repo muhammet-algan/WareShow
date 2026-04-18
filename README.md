@@ -1,5 +1,7 @@
 # WareShow - Akıllı Ürün Koleksiyonu ve Fiyat Takibi
 
+![WareShow Dashboard](assets/dashboard-showcase.png)
+
 Beğendiğiniz ürünleri tek bir panelde toplamanızı ve fiyat değişimlerini takip etmenizi sağlayan bir web uygulaması. Trendyol gibi popüler e-ticaret sitelerinden ürün linklerini ekleyerek güncel fiyat, başlık ve görsel bilgilerini otomatik olarak çekebilirsiniz.
 
 ## Özellikler
